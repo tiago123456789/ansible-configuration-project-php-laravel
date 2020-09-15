@@ -1,0 +1,2 @@
+[staging]
+34.123.71.8 ansible_connection=ssh ansible_user=tiago-rosa-da-costa

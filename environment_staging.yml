@@ -1,0 +1,26 @@
+---
+
+- hosts: staging
+  become: true
+
+  tasks:
+    - name: Add repository php in ubuntu
+      shell: add-apt-repository ppa:ondrej/php -y && apt update
+
+    - name: Install nginx, php and extensions php
+      apt: 
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - nginx
+        - php7.2
+        - php7.2-fpm
+        - php7.2-mysql
+        - php7.2-gd
+        - php7.2-intl
+        - php7.2-mbstring
+        - php7.2-soap
+        - php7.2-xml
+        - php7.2-xmlrpc
+        - php7.2-zip
+        
